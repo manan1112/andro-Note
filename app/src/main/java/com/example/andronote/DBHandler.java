@@ -27,6 +27,8 @@ public class DBHandler extends SQLiteOpenHelper{
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
+
+    //Inserting an item
     public void addItem(String tit, String not)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -36,12 +38,16 @@ public class DBHandler extends SQLiteOpenHelper{
         db.insert(TABLE_NAME,null,values);
         db.close();
     }
+
+    //Fetched data stored in Cursor variable
     public Cursor getData()
     {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data =  db.rawQuery("SELECT * FROM "+TABLE_NAME,null);
         return data;
     }
+
+    // deleting the data.
     public void deleteItem(String LItem) {
 
         // on below line we are creating
