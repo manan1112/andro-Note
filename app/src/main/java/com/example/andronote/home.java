@@ -77,7 +77,7 @@ public class home extends AppCompatActivity {
                             }
                         })
                         .setNegativeButton("NO",null).show();
-                return true;                         //false creating problem click+long click
+                return true;                         //false creating problem click+long click..clicking on long also invoke single click
             }
         });
         iv1.setOnClickListener(new View.OnClickListener() {

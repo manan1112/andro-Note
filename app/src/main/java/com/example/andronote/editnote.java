@@ -69,15 +69,15 @@ public class editnote extends AppCompatActivity {
                 str=ed2.getText();
                 pos=ed2.getSelectionStart();
                 //ACTION_RECOGNIZE_SPEECH :Starts an activity that will prompt the user for speech and send it through a speech recognizer.
-
                 Intent intent= new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH); // creaTing a New intent.
                 //ACTION_RECOGNIZE_SPEECH starts an activity that will prompt the user for speech input and sent it through speech recognizer
-
                 intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
                 //It requires some extra values like EXTRA_LANGUAGE_MODEL for selecting the language.
                 //LANGUAGE_MODEL_FREE_FORM is the value assigned to EXTRA_LANGUAGE_MODEL key.
-                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE,Locale.getDefault()); // set the language to be recognized as default language selected for your android
-                intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak to text"); //This text will appear at dialog box.
+                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE,Locale.getDefault());
+                // set the language to be recognized as default language selected for your android
+                intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak to text");
+                //This text will appear at dialog box.
 
                 try {
                     startActivityForResult(intent, REQUEST_CODE_SPEECH_INPUT);
