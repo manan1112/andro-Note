@@ -41,6 +41,7 @@ public class home extends AppCompatActivity {
         }
         ListAdapter ad = new ArrayAdapter<String>(home.this, android.R.layout.simple_list_item_1, al);
         lv1.setAdapter(ad);
+        //search view code
         s1.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s)
@@ -59,6 +60,7 @@ public class home extends AppCompatActivity {
                 System.exit(0);
             }
         });
+
         lv1.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -75,7 +77,7 @@ public class home extends AppCompatActivity {
                             }
                         })
                         .setNegativeButton("NO",null).show();
-                return true;                         //false creating problem
+                return true;                         //false creating problem click+long click
             }
         });
         iv1.setOnClickListener(new View.OnClickListener() {

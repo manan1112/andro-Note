@@ -76,8 +76,7 @@ public class editnote extends AppCompatActivity {
                 intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
                 //It requires some extra values like EXTRA_LANGUAGE_MODEL for selecting the language.
                 //LANGUAGE_MODEL_FREE_FORM is the value assigned to EXTRA_LANGUAGE_MODEL key.
-                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE,
-                        Locale.getDefault()); // set the language to be recognized as default language selected for your android
+                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE,Locale.getDefault()); // set the language to be recognized as default language selected for your android
                 intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak to text"); //This text will appear at dialog box.
 
                 try {

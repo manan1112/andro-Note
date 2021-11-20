@@ -23,7 +23,6 @@ public class note extends AppCompatActivity
     ImageView iv_mic;
     public Editable str;
     int pos;
-    //private EditText tv_Speech_to_text;
     private static final int REQUEST_CODE_SPEECH_INPUT = 1;
     private DBHandler dbHandler;
     @Override
@@ -35,7 +34,6 @@ public class note extends AppCompatActivity
         ed2=findViewById(R.id.ed2);
         iv1=findViewById(R.id.iv1);
         iv_mic = findViewById(R.id.iv_mic);
-        //tv_Speech_to_text = findViewById(R.id.ed2);
         dbHandler = new DBHandler(note.this);
 
         iv1.setOnClickListener(new View.OnClickListener()
@@ -59,14 +57,15 @@ public class note extends AppCompatActivity
             public void onClick(View v)
             {
                 str=ed2.getText();
-                pos=ed2.getSelectionStart();
-                Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH); //ACTION_RECOGNIZE_SPEECH starts an activity that will prompt the user for speech input and sent it through speech recognizer.
+                pos=ed2.getSelectionStart(); //cursor
+                //Intent to listen to user vocal input and return result in same activity....
+                Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                //ACTION_RECOGNIZE_SPEECH starts an activity that will prompt the user for speech input and sent it through speech recognizer.
                 intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
                 //It requires some extra values like EXTRA_LANGUAGE_MODEL for selecting the language.
                 //LANGUAGE_MODEL_FREE_FORM is the value assigned to EXTRA_LANGUAGE_MODEL key.
-
-                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault()); // set the language to be recognized as default language selected for your android
-
+                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+                // set the language to be recognized as default language selected for your android
                 intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak to text");
                 //This text will appear at dialog box.
 
