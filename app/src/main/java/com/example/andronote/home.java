@@ -62,6 +62,7 @@ public class home extends AppCompatActivity {
             }
         });
 
+        // Long click resulting in opting for delete option.
         lv1.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -88,6 +89,8 @@ public class home extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        //clicking the item will tell about the selected item.
         lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
