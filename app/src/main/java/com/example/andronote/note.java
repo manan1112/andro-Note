@@ -60,10 +60,15 @@ public class note extends AppCompatActivity
             {
                 str=ed2.getText();
                 pos=ed2.getSelectionStart();
-                Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH); //ACTION_RECOGNIZE_SPEECH starts an activity that will prompt the user for speech input and sent it through speech recognizer.
                 intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+                //It requires some extra values like EXTRA_LANGUAGE_MODEL for selecting the language.
+                //LANGUAGE_MODEL_FREE_FORM is the value assigned to EXTRA_LANGUAGE_MODEL key.
+
+                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault()); // set the language to be recognized as default language selected for your android
+
                 intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak to text");
+                //This text will appear at dialog box.
 
                 try {
                     startActivityForResult(intent, REQUEST_CODE_SPEECH_INPUT);
@@ -83,7 +88,7 @@ public class note extends AppCompatActivity
         if (requestCode == REQUEST_CODE_SPEECH_INPUT) {
             if (resultCode == RESULT_OK && data != null)
             {
-                ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS); // Contains the result which is stored in array list.
                 str.insert(pos,Objects.requireNonNull(result).get(0));
                 ed2.setText(str);
             }

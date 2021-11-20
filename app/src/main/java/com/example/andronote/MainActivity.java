@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity
             public void run() {
                 Intent i=new Intent(getApplicationContext(),home.class);
                 startActivity(i);
-                finish();                   //remove splash screen
+                finish();                   //remove splash screen, so that it wont appear even on back press
             }
         },splash_screen);
 
