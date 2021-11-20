@@ -34,27 +34,28 @@ public class home extends AppCompatActivity {
         s1=findViewById(R.id.s1);
         dbhandler = new DBHandler(this);
         al=new ArrayList<>();
-        Cursor data = dbhandler.getData();
+        Cursor data = dbhandler.getData(); //fetched data.
         while(data.moveToNext()) {
             al.add(data.getString(0));
 
         }
         ListAdapter ad = new ArrayAdapter<String>(home.this, android.R.layout.simple_list_item_1, al);
         lv1.setAdapter(ad);
+
         //search view code
         s1.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s)
             {
                 return false;
-            }
+            } //false return specifies that full text search (non dynamic) is disabled
 
             @Override
-            public boolean onQueryTextChange(String s) {
+            public boolean onQueryTextChange(String s) { //dynamic text search enabled.
                 ((ArrayAdapter<?>) ad).getFilter().filter(s);
                 return false;
             }
-            public void onBackPressed()
+            public void onBackPressed() 
             {
                 home.this.finish();
                 System.exit(0);
