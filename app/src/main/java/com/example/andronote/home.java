@@ -105,3 +105,6 @@ public class home extends AppCompatActivity {
 
     }
 }
+/*using github from android studio.
+commiting and pushing is done using simple interface without dealing with commands.
+ */
