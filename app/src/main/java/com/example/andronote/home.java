@@ -91,7 +91,7 @@ public class home extends AppCompatActivity {
         lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String param=adapterView.getItemAtPosition(i).toString();
+                String param=adapterView.getItemAtPosition(i).toString(); //This will pickup the text of selected item.
                 //Toast.makeText(getApplicationContext(),param, Toast.LENGTH_LONG).show();
                 Intent in=new Intent(getApplicationContext(),editnote.class);
                 in.putExtra("Selected",param);
