@@ -98,7 +98,7 @@ public class editnote extends AppCompatActivity {
             if (resultCode == RESULT_OK && data != null) {
                 ArrayList<String> result = data.getStringArrayListExtra(
                         RecognizerIntent.EXTRA_RESULTS); // Contains the result which is stored in array list.
-                str.insert(pos,Objects.requireNonNull(result).get(0));
+                str.insert(pos,Objects.requireNonNull(result).get(0)); //Inserting the recorded text at cursor position.
                 ed2.setText(str);
             }
         }
