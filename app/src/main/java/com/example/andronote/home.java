@@ -55,7 +55,7 @@ public class home extends AppCompatActivity {
                 ((ArrayAdapter<?>) ad).getFilter().filter(s);
                 return false;
             }
-            public void onBackPressed() 
+            public void onBackPressed()  //On clicking back button of android phone the application gets exited.
             {
                 home.this.finish();
                 System.exit(0);
