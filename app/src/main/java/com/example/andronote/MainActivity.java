@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity
 {
     private static int splash_screen=7000;    //7sec
 
-    //variables
+    //variables animation
     Animation topAnim,bottomAnim;
     ImageView image,design;
     TextView  title,tagline;
