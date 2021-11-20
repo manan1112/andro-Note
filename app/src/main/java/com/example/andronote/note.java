@@ -96,3 +96,5 @@ public class note extends AppCompatActivity
 
 
 }
+/* some vector assests has been used
+eases the task of designing.
