@@ -39,12 +39,12 @@ public class editnote extends AppCompatActivity {
         dbHandler=new DBHandler(editnote.this);
         Intent in = getIntent();
         String param= in.getStringExtra("Selected");
-        Cursor data = dbHandler.getData();
+        Cursor data = dbHandler.getData(); //fetched data being manipulated
         while(data.moveToNext()) {
             if(data.getString(0).equals(param))
             {
-                ed1.setText(data.getString(0));
-                ed2.setText(data.getString(1));
+                ed1.setText(data.getString(0)); // Title being fetched
+                ed2.setText(data.getString(1)); // note content being fetched.
             }
         }
 
@@ -98,7 +98,7 @@ public class editnote extends AppCompatActivity {
             if (resultCode == RESULT_OK && data != null) {
                 ArrayList<String> result = data.getStringArrayListExtra(
                         RecognizerIntent.EXTRA_RESULTS); // Contains the result which is stored in array list.
-                str.insert(pos,Objects.requireNonNull(result).get(0));
+                str.insert(pos,Objects.requireNonNull(result).get(0)); //Inserting the recorded text at cursor position.
                 ed2.setText(str);
             }
         }

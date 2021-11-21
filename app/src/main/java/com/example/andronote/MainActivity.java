@@ -38,8 +38,10 @@ public class MainActivity extends AppCompatActivity
 
         image.setAnimation(topAnim);
         design.setAnimation(topAnim);
+        // Image and design coming from the top.
         title.setAnimation(bottomAnim);
         tagline.setAnimation(bottomAnim);
+        //Title and tagline coming from the bottom.
 
         new Handler().postDelayed(new Runnable() {
             @Override

@@ -41,9 +41,9 @@ public class note extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                String message=ed1.getText().toString();
-                String message2=ed2.getText().toString();
-                dbHandler.addItem(message,message2);
+                String message=ed1.getText().toString(); //stores title
+                String message2=ed2.getText().toString(); // stores content
+                dbHandler.addItem(message,message2); //adding item using database function.
                 Toast.makeText(getApplicationContext(), " Note Saved ",Toast.LENGTH_LONG).show();
                 Intent intent=new Intent(getApplicationContext(),home.class);
                 startActivity(intent);
@@ -70,7 +70,7 @@ public class note extends AppCompatActivity
                 //This text will appear at dialog box.
 
                 try {
-                    startActivityForResult(intent, REQUEST_CODE_SPEECH_INPUT);
+                    startActivityForResult(intent, REQUEST_CODE_SPEECH_INPUT); //Actual starting of activity.
                 }
                 catch (Exception e) {
                     Toast.makeText(note.this, " " + e.getMessage(), Toast.LENGTH_SHORT)
@@ -88,7 +88,7 @@ public class note extends AppCompatActivity
             if (resultCode == RESULT_OK && data != null)
             {
                 ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS); // Contains the result which is stored in array list.
-                str.insert(pos,Objects.requireNonNull(result).get(0));
+                str.insert(pos,Objects.requireNonNull(result).get(0)); // converted text will be inserted at current cursor position.
                 ed2.setText(str);
             }
         }
@@ -96,3 +96,5 @@ public class note extends AppCompatActivity
 
 
 }
+/* some vector assests has been used
+eases the task of designing.

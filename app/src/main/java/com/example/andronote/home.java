@@ -34,33 +34,35 @@ public class home extends AppCompatActivity {
         s1=findViewById(R.id.s1);
         dbhandler = new DBHandler(this);
         al=new ArrayList<>();
-        Cursor data = dbhandler.getData();
+        Cursor data = dbhandler.getData(); //fetched data.
         while(data.moveToNext()) {
             al.add(data.getString(0));
 
         }
         ListAdapter ad = new ArrayAdapter<String>(home.this, android.R.layout.simple_list_item_1, al);
         lv1.setAdapter(ad);
+
         //search view code
         s1.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s)
             {
                 return false;
-            }
+            } //false return specifies that full text search (non dynamic) is disabled
 
             @Override
-            public boolean onQueryTextChange(String s) {
+            public boolean onQueryTextChange(String s) { //dynamic text search enabled.
                 ((ArrayAdapter<?>) ad).getFilter().filter(s);
                 return false;
             }
-            public void onBackPressed()
+            public void onBackPressed()  //On clicking back button of android phone the application gets exited.
             {
                 home.this.finish();
                 System.exit(0);
             }
         });
 
+        // Long click resulting in opting for delete option.
         lv1.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -87,10 +89,12 @@ public class home extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        //clicking the item will tell about the selected item.
         lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String param=adapterView.getItemAtPosition(i).toString();
+                String param=adapterView.getItemAtPosition(i).toString(); //This will pickup the text of selected item.
                 //Toast.makeText(getApplicationContext(),param, Toast.LENGTH_LONG).show();
                 Intent in=new Intent(getApplicationContext(),editnote.class);
                 in.putExtra("Selected",param);
@@ -101,3 +105,6 @@ public class home extends AppCompatActivity {
 
     }
 }
+/*using github from android studio.
+commiting and pushing is done using simple interface without dealing with commands.
+ */
