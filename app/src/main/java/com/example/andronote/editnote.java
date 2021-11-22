@@ -84,7 +84,7 @@ public class editnote extends AppCompatActivity {
                 }
                 catch (Exception e) {
                     Toast.makeText(editnote.this, " " + e.getMessage(),
-                            Toast.LENGTH_SHORT)
+                            Toast.LENGTH_SHORT) //commewn
                             .show();
                 }
             }
