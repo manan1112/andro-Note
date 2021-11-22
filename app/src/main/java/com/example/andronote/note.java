@@ -64,6 +64,7 @@ public class note extends AppCompatActivity
                 intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
                 //It requires some extra values like EXTRA_LANGUAGE_MODEL for selecting the language.
                 //LANGUAGE_MODEL_FREE_FORM is the value assigned to EXTRA_LANGUAGE_MODEL key.
+                //we can choose freem or web style- free form for vertical and web style for horizontal
                 intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
                 // set the language to be recognized as default language selected for your android
                 intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak to text");
@@ -98,3 +99,4 @@ public class note extends AppCompatActivity
 }
 /* some vector assests has been used
 eases the task of designing.
+*/
